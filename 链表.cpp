@@ -3,10 +3,11 @@
 #include<string.h>
 struct line
 {
-	int year;
-	int number;
-	char name[10];
-	char sex[6];
+	int major;//专业
+	int number;//学号
+	int phone_number;//电话
+	char name[10];//姓名
+	char address[60];//住址
 	struct line* next;
 };
 struct line *AppendNode(struct line* head)
@@ -21,12 +22,12 @@ struct line *AppendNode(struct line* head)
 		exit(0);
 	}
 	printf("链表/节点建立成功，请输入数据\n");
-	printf("请输入学号，年龄\n");
-	scanf("%d%d", &p->number,&p->year);
+	printf("请输入专业，学号，电话\n");
+	scanf("%d%d%d", &p->number,&p->major,&p->phone_number);
 	while ((ch = getchar()) != '\n');
-	printf("请输入姓名，性别\n");
+	printf("请输入姓名，住址\n");
 	scanf("%10s", p->name);
-	scanf("%6s", p->sex);
+	scanf("%6s", p->address);
 	if (head == NULL) 
 	{
 		head = p;
@@ -55,7 +56,7 @@ struct line *DisplayLink(struct line* head)
 	int i=1;
 	while (p_head != NULL)
 	{
-		printf("节点%d\n学号:%d\n姓名:%s\n性别:%s\n年龄:%d\n\n", i ,p_head->number, p_head->name, p_head->sex, p_head->year);
+		printf("节点%d\n专业:%d\n学号:%d\n姓名:%s\n电话:%s\n住址:%d\n\n", i ,p_head->major,p_head->number, p_head->name, p_head->phone_number, p_head->address);
 		p_head = p_head->next;
 		i++;
 	}
@@ -107,12 +108,12 @@ struct line *insertNode(struct line* head,int number)
 		printf("分配内存失败\n");
 		exit(0);
 	}
-	printf("请输入学号，年龄\n");
-	scanf("%d%d", &p_new->number, &p_new->year);
-	fflush(stdin);
-	printf("请输入姓名，性别\n");
-	scanf("%10s", p_new->name);
-	scanf("%6s", p_new->sex);
+	printf("请输入专业，学号，电话\n");
+	scanf("%d%d%d", &p->number, &p->major, &p->phone_number);
+	while ((ch = getchar()) != '\n');
+	printf("请输入姓名，住址\n");
+	scanf("%10s", p->name);
+	scanf("%6s", p->address);
 	p_new->next = NULL;
 	if (head == NULL) 
 	{
