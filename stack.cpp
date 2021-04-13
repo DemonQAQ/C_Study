@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define CAPACITY 32//栈最小容量
+#define CAPACITY 1//栈最小容量
 #define TYPE int
 
 struct stack_array//数组栈
@@ -195,7 +195,7 @@ void convert(int flag)//进制转换
 		if (cardinal_num < 2 || cardinal_num > 9)printf("数据范围有误,请重新输入\n");
 	} while (cardinal_num < 2 || cardinal_num > 9);
 	int temp_array[128];
-	for (int i = 0; i < 128; i++)temp_array[i] = -1;
+	for (i = 0; i < 128; i++)temp_array[i] = -1;
 	if (flag == 1)//数组栈 
 	{
 		//建栈

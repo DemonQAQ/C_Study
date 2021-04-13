@@ -1,8 +1,11 @@
-#include<stdio.h>
+#include <stdio.h>
 
-int main() 
+#define TYPE int
+int main()
 {
-	int i = 1;
-	printf("%d", i / 2);
+	float x = 2.0;
+	TYPE Y = 0;
+	Y = 5 / (TYPE)x;
+	printf("%f", x);
 	return 0;
 }
