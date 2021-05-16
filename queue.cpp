@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 #define TYPE int
-#define capacity 5//Êµ¼ÊÈİÁ¿+1 ÊäÈë5Ôò¶ÓÁĞ³¤Îª4
+#define capacity 5//Êı×é¶ÓÁĞÈİÁ¿,Êµ¼ÊÈİÁ¿+1 ÊäÈë5Ôò¶ÓÁĞ³¤Îª4
 #define MAX_EDGE 25565
 #define MIN_EDGE 0
 
@@ -31,7 +31,7 @@ void menu_display(int flag)//²Ëµ¥
 	printf("\t\tb.Èë¶Ó\n");
 	printf("\t\tc.³ö¶Ó\n");
 	printf("\t\tn.ÍË³ö\n");
-	printf("ÇëÊäÈë×ÖÄ¸Ñ¡Ôñ¹¦ÄÜ(Çø·Ö´óĞ¡Ğ´):\n");
+	printf("ÇëÊäÈë×ÖÄ¸Ñ¡Ôñ¹¦ÄÜ(Çø·Ö´óĞ¡Ğ´,ÊäÈë¶à¸ö×Ö·û½ö¶ÁÈ¡µÚÒ»¸ö):\n");
 }
 
 void information_output(int flag)//ÌáÊ¾ĞÅÏ¢Êä³ö
@@ -59,6 +59,14 @@ int scanf_overload(TYPE* value, long double min_edge, long double max_edge)//´ıÊ
 	do
 	{
 		value_temp = 0;
+		if (sizeof(TYPE) == 4) 
+		{
+			int x = 5;
+			TYPE a = 2;
+			if (x / a == 2)printf("ÇëÊäÈëÕûÊı£¬·¶Î§Îª(%d - %d)\n", (int)min_edge, (int)max_edge);
+			if (x / a == 2.5)printf("ÇëÊäÈëÊı¾İ£¬¾«¶ÈÎªĞ¡Êıµãºó7Î»£¬·¶Î§Îª(%f - %f)\n", (float)min_edge, (float)max_edge);
+		}
+		if (sizeof(TYPE) == sizeof(double))printf("ÇëÊäÈëÊı¾İ£¬¾«¶ÈÎªĞ¡Êıµãºó15Î»£¬·¶Î§Îª(%lf - %lf)\n", min_edge, max_edge);
 		flag = scanf("%lf", &value_temp);//ÊäÈëµÄÖµÎª×Ö·û´®ÔòscanfµÄº¯Êı·µ»ØÖµÎª0
 		if (!flag)//flagÎª0ÔòÎªÊäÈëÊı¾İÀàĞÍ´íÎó
 		{
@@ -223,7 +231,7 @@ TYPE queue_chained_dequeue(queue_chained* head)//Á´¶ÓÁĞ³ö¶Ó
 int main()
 {
 	char select = 0;
-	int flag = -1;
+	TYPE flag = -1;
 	//Êı×é¶ÓÁĞ±äÁ¿
 	queue_array* head_a = NULL;
 	//-------------------------
@@ -256,7 +264,7 @@ int main()
 		case 'b'://Èë¶Ó
 			if (flag == -1)
 			{
-				printf("Î´´´½¨Êı×é,ÇëÏÈ´´½¨¶ÓÁĞ\n");
+				printf("Î´´´½¨¶ÓÁĞ,ÇëÏÈ´´½¨¶ÓÁĞ\n");
 				system("pause");
 				break;
 			}
@@ -266,7 +274,7 @@ int main()
 		case 'c'://³ö¶Ó
 			if (flag == -1)
 			{
-				printf("Î´´´½¨Êı×é,ÇëÏÈ´´½¨¶ÓÁĞ\n");
+				printf("Î´´´½¨¶ÓÁĞ,ÇëÏÈ´´½¨¶ÓÁĞ\n");
 				system("pause");
 				break;
 			}

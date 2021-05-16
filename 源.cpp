@@ -1,7 +1,5 @@
 #include<stdio.h>
-int main() 
+int add(int a, int b)
 {
-	int x = 12, y = 9;
-	printf("%d\t%d",(x+1),x);
-	return 0;
+    return a + b;
 }
